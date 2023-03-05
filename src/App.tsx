@@ -49,7 +49,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("useEffect combineData")
+    console.log("useEffect combineData");
     let newCount = logicInterval(count, lastPage);
     combineData(newCount, round, increase);
   }, [count]);
@@ -78,7 +78,13 @@ function App() {
       <h1>Combine Data 2 useEffect :{text}</h1>
       <h1>LastPage :{lastPage}</h1>
       <input
-        onChange={(e) => setLastPage(parseInt(e.target.value))}
+        onChange={(e) => {
+          try {
+            if (e.target.value) {
+              setLastPage(parseInt(e.target.value));
+            }
+          } catch (error) {}
+        }}
         type="number"
       />
     </div>
