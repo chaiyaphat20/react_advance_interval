@@ -9,7 +9,7 @@ function App() {
   const [text, setText] = useState("");
   const [lastPage, setLastPage] = useState(5);
 
-  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
   //increase
   const increaser = () => {
@@ -52,7 +52,7 @@ function App() {
     console.log("useEffect combineData");
     let newCount = logicInterval(count, lastPage);
     combineData(newCount, round, increase);
-  }, [count]);
+  }, [round]);
 
   const countData = useCallback(() => {
     setCount((prev) => prev + 1);
